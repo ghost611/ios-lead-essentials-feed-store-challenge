@@ -25,7 +25,7 @@ public final class FeedStore: FeedStoreChallenge.FeedStore {
     }
     
     public func deleteCachedFeed(completion: @escaping FeedStore.DeletionCompletion) {
-        
+        completion(nil)
     }
     
     public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
