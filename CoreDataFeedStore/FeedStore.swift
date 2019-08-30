@@ -9,6 +9,12 @@ public final class FeedStore: FeedStoreChallenge.FeedStore {
         let mom = NSManagedObjectModel(contentsOf: url)!
         persistentContainer = NSPersistentContainer(name: "FeedStore", managedObjectModel: mom)
         
+        // using an in memory store type so the tests do not actually populate
+        // the real store underneath which leads to failing tests.
+        // if a in memory store should be used or not, can be passed in at
+        // initialization time.
+        // so default will be no in memory store; if flag is provided
+        // (from tests) use the in memory store.
         let description = NSPersistentStoreDescription(url: url)
         description.type = NSInMemoryStoreType
         persistentContainer.persistentStoreDescriptions = [
