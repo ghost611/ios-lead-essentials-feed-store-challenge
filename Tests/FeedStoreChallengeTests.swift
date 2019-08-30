@@ -81,9 +81,9 @@ final class FeedStoreChallengeTests: XCTestCase, FeedStoreSpecs {
     }
     
     func test_storeSideEffects_runSerially() {
-//        let sut = makeSUT()
-//
-//        assertThatSideEffectsRunSerially(on: sut)
+        let sut = makeSUT()
+        
+        assertThatSideEffectsRunSerially(on: sut)
     }
     
     // - MARK: Helpers
