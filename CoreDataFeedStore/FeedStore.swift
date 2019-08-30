@@ -25,6 +25,14 @@ public final class FeedStore: FeedStoreChallenge.FeedStore {
     }
     
     public func deleteCachedFeed(completion: @escaping FeedStore.DeletionCompletion) {
+        let moc = persistentContainer.viewContext
+        
+        let mos = try! moc.fetch(FeedMO.request)
+        if let mo = mos.first {
+            moc.delete(mo)
+            try! moc.save()
+        }
+        
         completion(nil)
     }
     
