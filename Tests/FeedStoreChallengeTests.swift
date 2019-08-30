@@ -64,14 +64,14 @@ final class FeedStoreChallengeTests: XCTestCase, FeedStoreSpecs {
     
     func test_delete_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
-
+        
         assertThatDeleteHasNoSideEffectsOnEmptyCache(on: sut)
     }
     
     func test_delete_deliversNoErrorOnNonEmptyCache() {
-//        let sut = makeSUT()
-//
-//        assertThatDeleteDeliversNoErrorOnNonEmptyCache(on: sut)
+        let sut = makeSUT()
+        
+        assertThatDeleteDeliversNoErrorOnNonEmptyCache(on: sut)
     }
     
     func test_delete_emptiesPreviouslyInsertedCache() {
