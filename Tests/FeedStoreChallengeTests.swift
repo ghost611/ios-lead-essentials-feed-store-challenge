@@ -5,7 +5,7 @@
 import XCTest
 import FeedStoreChallenge
 
-class FeedStoreChallengeTests: XCTestCase, FeedStoreSpecs {
+final class FeedStoreChallengeTests: XCTestCase, FeedStoreSpecs {
     
     //
     // We recommend you to implement one test at a time.
