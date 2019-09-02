@@ -4,6 +4,8 @@
 
 import XCTest
 import FeedStoreChallenge
+
+@testable
 import CoreDataFeedStore
 
 final class FeedStoreChallengeTests: XCTestCase, FeedStoreSpecs {
@@ -89,7 +91,13 @@ final class FeedStoreChallengeTests: XCTestCase, FeedStoreSpecs {
     // - MARK: Helpers
     
     private func makeSUT() -> FeedStoreChallenge.FeedStore {
-        return CoreDataFeedStore.FeedStore()
+        // using an in memory store type so the tests do not actually populate
+        // the real store underneath which leads to failing tests.
+        // if a in memory store should be used or not, can be passed in at
+        // initialization time.
+        // so default will be no in memory store; if flag is provided
+        // (from tests) use the in memory store.
+        return CoreDataFeedStore.FeedStore(inMemoryOnly: true)
     }
 }
 
